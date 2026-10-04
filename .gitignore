@@ -1,4 +1,7 @@
-test/W.c
-test/w.c
-test/s
-test/w
+# Generated verification binaries
+/test/s
+/test/w
+
+# Local compiler outputs
+*.o
+*.out
