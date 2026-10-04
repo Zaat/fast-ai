@@ -19,11 +19,12 @@ The history is intentionally kept rather than squashed because the major reducti
 |---|---:|---|
 | `029_736.c` | 736 | first major late-stage compact flat representation |
 | `033_681.c` | 681 | global tree context / tighter embedding machinery |
-| `040_629.c` | 629 | end-position representation and deeper state reuse |
+| `040_629.c` | 629 | `k` passed into `f`; global `r` removed |
+| `043_608.c` | 608 | subtree end positions instead of sizes |
 | `046_595.c` | 595 | highly compressed generator/search architecture |
-| `047_566.c` | 566 | merger/rewrite of matching and embedding logic begins |
+| `047_566.c` | 566 | matching and embedding merged into one function `F` |
 | `048_561.c` | 561 | apparent near-floor version |
-| `049_545.c` | 545 | current best; another 16-char structural reduction |
+| `049_545.c` | 545 | current best: `realloc` declaration dropped (15) plus `n<J>r` (1) |
 
 For the full source-length progression, see the repository root `README.md`.
 
