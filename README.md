@@ -1,5 +1,7 @@
 # TREE(3) code golf
 
+[![verify](https://github.com/Zaat/fast-ai/actions/workflows/verify.yml/badge.svg?branch=tree3-golf)](https://github.com/Zaat/fast-ai/actions/workflows/verify.yml?query=branch%3Atree3-golf)
+
 A reproducible record of an extreme C/Python code-golf experiment for the finite TREE function.
 
 The current C entry is **545 characters** (line breaks not counted), verified by the test harness in this branch. It is the shortest verified C version in this project. **No claim of a formal world record is made without independent comparison against other submissions.**
