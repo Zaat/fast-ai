@@ -1,0 +1,31 @@
+name: verify
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compiler version
+        run: gcc --version
+      - name: Character count of current entry
+        run: tr -d '\n' < c/tree3.c | wc -c
+      - name: Full harness on c/tree3.c
+        working-directory: test
+        run: |
+          bash T8.sh ../c/tree3.c | tee harness.out
+          grep -q 'embedding mismatches: 0' harness.out
+          grep -q 'reference 286 match' harness.out
+          grep -q 'N=1 -> 1' harness.out
+          grep -q 'N=2 -> 3' harness.out
+      - name: Re-verify every historical version
+        env:
+          TREE3_SECONDS: '2'
+        run: python3 tools/verify_all.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-logs
+          path: logs/

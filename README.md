@@ -74,6 +74,12 @@ Full verified sequence (chars, line breaks not counted):
 ```
 (1778 is the readable reference used for the assembly version; 824 is the rejected fixed-limit version.)
 
+## Progress
+
+![progress](logs/progress.svg)
+
+See [`logs/STATS.md`](logs/STATS.md) for statistics and [`logs/history_results.md`](logs/history_results.md) for the re-verification of every version.
+
 ## Repository map
 
 | Path | Purpose |
@@ -86,6 +92,11 @@ Full verified sequence (chars, line breaks not counted):
 | [`test/`](test/) | Verification harness and reference data |
 | [`NOTES.md`](NOTES.md) | Technical notes, failed ideas, invariants and breakthroughs |
 | [`PROBABILITIES.md`](PROBABILITIES.md) | Forecast history and lessons from repeated probability misses |
+| [`c/rejected/`](c/rejected/) | 12 attempts that were tried and rejected, with reasons (`WHY.txt`) |
+| [`logs/`](logs/) | Re-verification of every version, rejected-attempt failures, statistics, progress chart |
+| [`tools/`](tools/) | Scripts that regenerate everything in `logs/` |
+| [`ENVIRONMENT.md`](ENVIRONMENT.md) | Compiler and machine used for the logs |
+| [`.github/workflows/verify.yml`](.github/workflows/verify.yml) | GitHub runs the tests on every push |
 
 ## Counting convention
 
