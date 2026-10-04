@@ -63,7 +63,7 @@ Late-stage reductions were mostly **structural**, not cosmetic. Important ideas 
 - merging embedding and child-matching logic into one recursive routine;
 - exploiting C expression semantics such as chained comparisons to fold control state into existing expressions.
 
-The final 561 → 545 jump came mostly from dropping `void*realloc();` (15 chars: gcc treats an undeclared `realloc` as its built-in, pointer-returning function) plus 1 char from folding the matcher's stop state into the chained comparison `n<J>r`.
+The final 561 → 545 step was found on two systems working in parallel, by different routes: one through a tighter `F`/control-flow encoding with the stop state folded into `n<J>r` (16 chars); the other, whose source is stored as `c/tree3.c`, by dropping `void*realloc();` (15 chars, relying on gcc's built-in `realloc`) plus 1 char from `n<J>r`.
 
 Full verified sequence (chars, line breaks not counted):
 

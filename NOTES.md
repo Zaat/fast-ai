@@ -34,13 +34,24 @@ This representation was a major late-stage simplification because subtree traver
 | Store subtree end positions instead of subtree sizes | ~12 chars |
 | Drop explicit `realloc` declaration and rely on gcc built-in behavior | ~15 chars |
 | Sign-mark used target subtrees instead of a separate used-array | ~10 chars net |
-| Fold matcher stop state into chained comparison `n<J>r` | 1 char (part of 561 → 545) |
+| Fold matcher stop state into chained comparison `n<J>r` | part of 561 → 545 (see below) |
 
 The last two major verified collapses were:
 
 ```
 595 → 561   merged/reframed matcher + embedding logic
-561 → 545   15 chars from dropping the realloc declaration + 1 from n<J>r
+561 → 545   reached on two systems by different routes (see below)
+```
+
+Two systems were used in parallel, and each found its own path from 561 to 545:
+
+- **Other system:** a 16-character reduction through a tighter `F`/control-flow encoding,
+  with the matcher's stop state folded into the chained comparison `n<J>r`.
+- **This session (Claude, the source stored in `c/tree3.c`):** 15 characters from dropping
+  `void*realloc();` (gcc treats an undeclared `realloc` as its pointer-returning built-in)
+  plus 1 from `n<J>r`.
+
+```
 ```
 
 These were structural changes, not whitespace/name cleanup.
