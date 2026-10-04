@@ -51,6 +51,16 @@ TREE(2) = 3
 
 TREE(3) itself is not expected to terminate on real hardware.
 
+To run the tractable cases with the stored source, change the colour count in three places
+(`3*v`, `c/3`, `c%3`):
+
+```sh
+sed 's/3\*v/2*v/;s/c\/3/c\/2/;s/c%3/c%2/' c/tree3.c > t2.c && gcc -w t2.c -o t2 && ./t2   # prints 3
+sed 's/3\*v/1*v/;s/c\/3/c\/1/;s/c%3/c%1/' c/tree3.c > t1.c && gcc -w t1.c -o t1 && ./t1   # prints 1
+```
+
+`-fno-builtin` breaks the program (it relies on gcc's built-in `realloc`).
+
 ## What “correct” means here
 
 The project does not claim correctness merely because the source compiles. A current-record candidate must preserve:

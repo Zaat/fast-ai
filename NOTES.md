@@ -34,13 +34,13 @@ This representation was a major late-stage simplification because subtree traver
 | Store subtree end positions instead of subtree sizes | ~12 chars |
 | Drop explicit `realloc` declaration and rely on gcc built-in behavior | ~15 chars |
 | Sign-mark used target subtrees instead of a separate used-array | ~10 chars net |
-| Fold matcher stop state into chained comparison `n<J>r` | key part of 561 → 545 |
+| Fold matcher stop state into chained comparison `n<J>r` | 1 char (part of 561 → 545) |
 
 The last two major verified collapses were:
 
 ```
 595 → 561   merged/reframed matcher + embedding logic
-561 → 545   another 16-char reduction via tighter F/control-flow encoding
+561 → 545   15 chars from dropping the realloc declaration + 1 from n<J>r
 ```
 
 These were structural changes, not whitespace/name cleanup.
@@ -80,6 +80,10 @@ Several plausible analyses turned out to be wrong and were corrected through tes
 - Removing the target-child state array only became safe after sign-marking plus corresponding traversal changes.
 - A shorter version with `int*S` looked plausible but crashed because tree pointers were truncated.
 - The self-comparison shortcut was not redundant in the relevant architecture.
+- A pasted analysis claimed global `k`/`c` in `g` and the undeclared `bzero` were bugs and offered a "corrected 598-char" version; the code it gave was actually 795 chars and the bugs did not exist (782-char version passed all checks).
+- A pasted analysis pointed out that `f` falls off its end while its value was tested by `&&`; this was **correct**, and the 761 version fixed it with `?:` (saving 1 char instead of the proposed +2).
+- `P[p][1]=p++` (an early attempt) really was unsequenced: it segfaulted.
+- Unparenthesised `#define A(n)n<0?-n:n` misparses inside `i+A(x[i])` and runs out of memory; a macro also cost more than it saved (+17 net).
 
 ## Verification standard
 

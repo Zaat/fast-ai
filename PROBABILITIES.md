@@ -151,3 +151,32 @@ disappear.
 For future estimates, maintain a distribution over the unknown minimum `L`, update it
 with both successful and failed searches, and avoid multiplying correlated constraints
 or assuming discoveries arrive uniformly in time.
+
+## Claude's estimates from the later C sessions (790 → 545)
+
+Recorded separately because they come from a different part of the conversation; they
+overlap with, and are consistent with, the table above.
+
+**Method used for these:**
+1. Inventory of untried ideas, each with a guessed saving and success chance
+   (small tricks: likely, 1-5 chars; structural ideas: unlikely, 10-30 chars).
+2. Per-component floor: estimate the minimum for each part (globals, matcher,
+   embedding check, generator, search, main) and add them up.
+3. Diminishing returns: extrapolate from how much recent ideas saved (e.g. 26 -> 11 -> 5).
+4. Express the result as cumulative probabilities P(final length <= X).
+5. From 561 on, recalibrate: every earlier estimate had been too pessimistic, so the
+   curves were deliberately shifted toward more savings.
+
+| Current length | Estimate | Outcome |
+|---|---|---|
+| 790 | <=789 97%, <=785 85%, <=780 65%, <=770 40%, <=750 15%, <=710 3%; best guess 770-780 | 736, then 681 |
+| 736 | 729 ~75%; low 720s ~40%; readability ~5% | 681 |
+| 681 | 630-650 "realistic"; <600 ~20%; floor ~450-500 | 633, 606 |
+| 606 | <=600 95%, <=590 75%, <=575 50%, <=550 25%, <=500 8%, <=450 2% | 595, 566, 561, 545 |
+| 595 | floor 510-555; 480 ~15% with a new algorithm | 566 (merged matcher) |
+| 566 | 480 ~5%; 530-545 ~50% | 561, 545 |
+| 561 | 555 85%, 545 60%, 530 35%, 500 10%, 480 3% | 545 |
+| 561 (recalibrated) | 555 90%, 545 65%, 530 40%, 500 12%, 480 4% | 545 |
+
+Retrospectively, the 790-stage curve implied <1% for 681, ~0.1% for 606 and well under
+0.1% for 595. Current practical-floor guess: roughly 500-530, held loosely.

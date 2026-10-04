@@ -63,7 +63,16 @@ Late-stage reductions were mostly **structural**, not cosmetic. Important ideas 
 - merging embedding and child-matching logic into one recursive routine;
 - exploiting C expression semantics such as chained comparisons to fold control state into existing expressions.
 
-The final 561 → 545 jump is especially notable: the control state in the matcher was folded into the chained comparison `n<J>r`, allowing another 16-character reduction after 561 had already looked nearly irreducible.
+The final 561 → 545 jump came mostly from dropping `void*realloc();` (15 chars: gcc treats an undeclared `realloc` as its built-in, pointer-returning function) plus 1 char from folding the matcher's stop state into the chained comparison `n<J>r`.
+
+Full verified sequence (chars, line breaks not counted):
+
+```
+1513 → 1778 → 824 → 1134 → 860 → 856 → 852 → 849 → 810 → 807 → 806 → 806 → 798 → 795 → 793 → 792
+→ 789 → 781 → 780 → 779 → 761 → 760 → 759 → 755 → 754 → 753 → 749 → 748 → 736 → 728 → 715 → 707
+→ 681 → 679 → 675 → 668 → 660 → 656 → 633 → 629 → 624 → 620 → 608 → 606 → 599 → 595 → 566 → 561 → 545
+```
+(1778 is the readable reference used for the assembly version; 824 is the rejected fixed-limit version.)
 
 ## Repository map
 
