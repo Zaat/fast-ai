@@ -6,7 +6,7 @@
 - Average saving per step: 13.1 chars; median: 4
 - Steps that came from Albert's ideas (commit titles): **13**
 - Versions passing re-verification today: **47/49** (see `logs/history_results.md`)
-- Commits on this branch: 80
+- Commit history: **95+ commits** at archival-audit time; continues to grow with curation and CI
 
 ## Largest single steps
 
@@ -70,3 +70,32 @@
 ```
 
 ![progress](progress.svg)
+
+
+## Verification and build statistics
+
+Across the 49 preserved C files in `logs/history_results.csv`:
+
+- **47 pass** current re-verification; **2 fail** for historically documented reasons.
+- Compile time range in the archived environment: **0.03–0.06 s** per version.
+- Mean compile time: **~0.043 s**.
+- Compiled binary-size range: **16,360–16,552 bytes**.
+- Original 1,513-char C binary: **16,408 bytes**.
+- Current 545-char C binary: **16,416 bytes**.
+- Current source emits **22 warnings** under the historical diagnostic run; the maximum
+  observed among preserved versions is 29.
+
+The contrast between a ~64% source reduction and essentially unchanged executable size is
+shown in `source_vs_binary.svg`.
+
+## Rejected-attempt statistics
+
+The 12 preserved rejected attempts cover several distinct failure classes:
+
+- memory safety / crash / out-of-memory failures;
+- wrong TREE results;
+- embedding nontermination on a small reference pair;
+- a correct but longer rewrite;
+- a confidently misreported "598-char" claim whose code was actually 795 chars.
+
+See `rejected_failure_modes.svg` and `rejected_results.md`.
