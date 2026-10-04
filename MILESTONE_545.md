@@ -16,7 +16,7 @@ The two source files above are byte-identical.
 ## Source
 
 ```c
-void*realloc();int**P,**S,p=1,q,k,i,c,j,M,*x,*y;F(i,I,j,J){int c=j,n=j,r=i/I;for(;n<J>r;n++)n<abs(y[c])||(c=n),n<y[c]&&x[*x+i]==y[*y+n]&F(i+1,x[i],n+1,y[n])&&(y[c]*=-1,r=F(x[i],I,j,J),y[c]*=-1);return r;}g(v){for(S=realloc(S,8*p),k=p;k&&*(x=P[--k])+1==v;)for(c=3*v;c--;)for(i=c/3,P=realloc(P,8*p+8),P[p++]=y=realloc(0,8*v),j=v;j--;)q=j-(j>i),y[j]=j-i?x[q]+(x[q]>=i):i?i+1:v,y[j+v]=j-i?x[*x+q]:c%3;}f(d,k){for(g(d+2),M+=d>M;*P[k]<d+2;~q?:f(d+1,1),k++)for(S[d]=y=P[k],q=d;q--&&(x=S[q])-y&&!F(0,*x,0,*y););}main(){*(P=realloc(0,8))=&M;g(1);f(0,1);printf("%d",M);}
+int**P,**S,p=1,q,k,i,c,j,M,*x,*y;F(i,I,j,J){int c=j,n=j,r=i/I;for(;n<J>r;n++)n<abs(y[c])||(c=n),n<y[c]&&x[*x+i]==y[*y+n]&F(i+1,x[i],n+1,y[n])&&(y[c]*=-1,r=F(x[i],I,j,J),y[c]*=-1);return r;}g(v){for(S=realloc(S,8*p),k=p;k&&*(x=P[--k])+1==v;)for(c=3*v;c--;)for(i=c/3,P=realloc(P,8*p+8),P[p++]=y=realloc(0,8*v),j=v;j--;)q=j-(j>i),y[j]=j-i?x[q]+(x[q]>=i):i?i+1:v,y[j+v]=j-i?x[*x+q]:c%3;}f(d,k){for(g(d+2),M+=d>M;*P[k]<d+2;~q?:f(d+1,1),k++)for(S[d]=y=P[k],q=d;q--&&(x=S[q])-y&&!F(0,*x,0,*y););}main(){*(P=realloc(0,8))=&M;g(1);f(0,1);printf("%d",M);}
 ```
 
 > Historical note: the canonical stored 545 version in the branch is the one preserved by the Git blob above. If this text is ever edited, the blob IDs and canonical files take precedence.
