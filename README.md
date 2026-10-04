@@ -1,43 +1,95 @@
 # TREE(3) code golf
 
-The shortest verified programs we could write that compute **TREE(3)**, by Albert with Claude.
+A reproducible record of an extreme C/Python code-golf experiment for the finite TREE function.
+
+The current C entry is **545 characters** (line breaks not counted), verified by the test harness in this branch. It is the shortest verified C version in this project. **No claim of a formal world record is made without independent comparison against other submissions.**
+
+> TREE(3) is finite, but so enormous that the full computation is not expected to finish in practice. The goal here is to implement the correct search as compactly as possible, not to numerically obtain TREE(3).
+
+## Current C entry
+
+- Source: [`c/tree3.c`](c/tree3.c)
+- Explained equivalent: [`c/tree3_explained.c`](c/tree3_explained.c)
+- Verified history: [`c/history/`](c/history/)
+- Current length: **545 chars**
+- Target environment: **gcc, x86-64, permissive GNU C**
+- Typical build: `gcc -w c/tree3.c -o tree3`
+
+The golf intentionally relies on old-style/implicit C behavior, GNU/compiler extensions and x86-64 size assumptions. It is **not portable ISO C**.
 
 ## What TREE(3) is
-TREE(n) is the length of the longest sequence of rooted trees, each node coloured with one of
-n colours, where the k-th tree has at most k nodes and no earlier tree embeds into a later one
-(Kruskal's tree theorem says such sequences are always finite). TREE(1)=1, TREE(2)=3, and
-TREE(3) is so large that no physical computer could ever finish computing it, so the program is
-correct in principle but runs forever in practice. Smaller cases are used to test it.
 
-## Files
-- `c/tree3.c`: current best C, **545 characters**
-- `c/tree3_explained.c`: the same code with line breaks and comments explaining how it works
-- `c/history/`: every verified step as `step_chars.c`; each commit message explains the change
-- `c/tree.s`: gcc -Os assembly of the readable C version (an early request for a short assembly version)
-- `python/`: Python versions from the readable reference down to 348 characters, plus `shortest_code.py` (a character-count helper)
-- `test/`: verification harness (see `test/README.md`)
-- `NOTES.md`: rules, biggest wins, rejected ideas, checked claims
-- `PROBABILITIES.md`: probability estimates over time, the method used, and outcomes
+TREE(n) is the maximum length of a sequence of finite rooted trees whose nodes use at most `n` colours, where the `k`-th tree has at most `k` nodes and no earlier tree embeds into a later one. Kruskal's tree theorem implies every such bad sequence is finite.
 
-## Build and run
-    gcc -w c/tree3.c -o tree3 && ./tree3
+`TREE(1)=1`, `TREE(2)=3`, while `TREE(3)` is unimaginably larger than ordinary large-number constructions used in computation. This program therefore implements the search correctly in principle but is not expected to finish TREE(3) on physical hardware.
 
-Requirements and caveats:
-- **gcc on 64-bit x86 Linux.** It relies on implicit `int`, K&R-style parameters, the GNU `a?:b`
-  operator, and gcc recognising `realloc`/`bzero`/`abs`/`printf` as built-ins without declarations.
-  `-fno-builtin`, clang, or strict C99/C23 modes will not work.
-- **TREE(3) only**: the colour count is fixed at 3 (versions from 816 chars on).
-  To test smaller cases, change `3*v`, `c/3` and `c%3` to 1 or 2: TREE(1)=1, TREE(2)=3.
-- **No fixed limits**: all storage grows with `realloc`; memory use grows without bound.
-- Readability is close to zero by design; see `c/tree3_explained.c`.
+## Verification
 
-## How it works (short version)
-Trees are flat arrays: for each node, where its subtree ends, then each node's colour.
-`g` builds all trees of the next size by inserting one node into each smaller tree.
-`f` does a depth-first search over sequences, using `F` to check that no earlier tree
-embeds into the candidate. `F` matches child subtrees injectively, marking a used child by
-negating its end value and restoring it afterwards.
+From `test/`:
 
-## C progression (chars, line breaks not counted)
+```sh
+bash T8.sh ../c/tree3.c
+```
 
-1513 → 1778 → 824 → 1134 → 860 → 856 → 852 → 849 → 810 → 807 → 806 → 806 → 798 → 795 → 793 → 792 → 789 → 781 → 780 → 779 → 761 → 760 → 759 → 755 → 754 → 753 → 749 → 748 → 736 → 728 → 715 → 707 → 681 → 679 → 675 → 668 → 660 → 656 → 633 → 629 → 624 → 620 → 608 → 606 → 599 → 595 → 566 → 561 → 545
+The harness checks:
+
+1. character count;
+2. embedding behavior against 3,000 reference pairs;
+3. generator output against an independently produced reference set;
+4. TREE(1) = 1 and TREE(2) = 3 under ASan/UBSan;
+5. a bounded TREE(3) run to catch immediate sanitizer/runtime failures.
+
+See [`test/README.md`](test/README.md) for details.
+
+## Major C milestones
+
+Selected verified milestones:
+
+```
+1513 → 1134 → 860 → 798 → 748 → 736 → 681
+     → 629 → 595 → 566 → 561 → 545
+```
+
+The complete preserved sequence is in [`c/history/`](c/history/).
+
+Late-stage reductions were mostly **structural**, not cosmetic. Important ideas included:
+
+- flat preorder tree storage;
+- subtree **end positions** instead of subtree sizes;
+- sign-marking target subtrees instead of a separate used-child array;
+- global source/target tree context to remove repeated pointer parameters;
+- synthetic empty-tree seeding;
+- reverse size-class scans and sentinel generation;
+- merging embedding and child-matching logic into one recursive routine;
+- exploiting C expression semantics such as chained comparisons to fold control state into existing expressions.
+
+The final 561 → 545 jump is especially notable: the control state in the matcher was folded into the chained comparison `n<J>r`, allowing another 16-character reduction after 561 had already looked nearly irreducible.
+
+## Repository map
+
+| Path | Purpose |
+|---|---|
+| [`c/tree3.c`](c/tree3.c) | Current 545-character C entry |
+| [`c/tree3_explained.c`](c/tree3_explained.c) | Commented explanation of the current C logic |
+| [`c/history/`](c/history/) | Every preserved verified C milestone |
+| [`c/tree.s`](c/tree.s) | Assembly generated during the exploration |
+| [`python/`](python/) | Python golf history and current Python entry |
+| [`test/`](test/) | Verification harness and reference data |
+| [`NOTES.md`](NOTES.md) | Technical notes, failed ideas, invariants and breakthroughs |
+| [`PROBABILITIES.md`](PROBABILITIES.md) | Forecast history and lessons from repeated probability misses |
+
+## Counting convention
+
+The project record counts **source characters with line breaks excluded** unless otherwise stated. `c/tree3.c` is stored as a 545-byte one-line file.
+
+## Why preserve the history?
+
+The interesting part of this experiment is not only the final number. Multiple versions looked close to irreducible, then a representation-level change removed another large block of source. The history shows the difference between a **local code-golf minimum** and a deeper change in how the algorithm is represented.
+
+The probability estimates made during the search were repeatedly too pessimistic; that history is preserved in [`PROBABILITIES.md`](PROBABILITIES.md) as a record of forecasting failure rather than as a claim of literal lottery-like rarity.
+
+## Status
+
+**Current verified C best in this project: 545 characters.**
+
+Further reductions should be accepted only after they pass the same verification standard as the current entry.
