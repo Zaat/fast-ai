@@ -180,3 +180,31 @@ overlap with, and are consistent with, the table above.
 
 Retrospectively, the 790-stage curve implied <1% for 681, ~0.1% for 606 and well under
 0.1% for 595. Current practical-floor guess: roughly 500-530, held loosely.
+
+
+## The cosmic-odds thought experiment
+
+Near the end of the session, two especially dramatic subjective forecasts were discussed:
+roughly **1 in 35 million** for the rapid 561 result and, later, figures as small as
+**1 in 100 billion** for another extreme late-stage result.
+
+As a *thought experiment only*, multiplying those numbers as if they were independent gives
+
+```
+1 / (35,000,000 × 100,000,000,000)
+  = about 1 in 3.5 quintillion
+```
+
+The conversation then compared that number with the number of 30-minute windows in the
+age of the universe. About 13.8 billion years contains roughly 2.4×10^14 half-hour windows,
+so a literal independent 1-in-3.5×10^18 event would average about one success per ~14,000
+universe-lifetimes even if one independent attempt occurred every half hour.
+
+That comparison was useful rhetorically because it showed how extreme the *stated model*
+had become. It should **not** be read as evidence that the programming achievement itself
+has a measured 1-in-quintillions base rate. The forecasts were correlated, subjective, and
+repeatedly falsified by the search itself.
+
+The lasting conclusion is more interesting than the giant number: repeated "impossible"
+events were evidence that the probability model was wrong, especially its treatment of
+structural breakthroughs as rare independent lottery events.
