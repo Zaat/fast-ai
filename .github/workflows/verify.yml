@@ -12,6 +12,10 @@ jobs:
         run: gcc --version
       - name: Character count of current entry
         run: tr -d '\n' < c/tree3.c | wc -c
+      - name: Python canonical entry integrity
+        run: |
+          test "$(wc -c < python/tree3.py)" -eq 349
+          cmp -s python/tree3.py python/15_349_s348.py
       - name: Full harness on c/tree3.c
         working-directory: test
         run: |
