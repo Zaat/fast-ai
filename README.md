@@ -95,6 +95,12 @@ See [`JOURNAL.md`](JOURNAL.md) for the full story.
 
 ![forecasts](logs/forecasts.svg)
 
+![source vs binary](logs/source_vs_binary.svg)
+
+![verification outcomes](logs/verification_outcomes.svg)
+
+![rejected failure modes](logs/rejected_failure_modes.svg)
+
 See [`logs/STATS.md`](logs/STATS.md) for statistics and [`logs/history_results.md`](logs/history_results.md) for the re-verification of every version.
 
 ## Milestone commits
@@ -124,6 +130,8 @@ See [`logs/STATS.md`](logs/STATS.md) for statistics and [`logs/history_results.m
 | [`NOTES.md`](NOTES.md) | Technical notes, failed ideas, invariants and breakthroughs |
 | [`PROBABILITIES.md`](PROBABILITIES.md) | Forecast history and lessons from repeated probability misses |
 | [`JOURNAL.md`](JOURNAL.md) | Chronological story of the project: discussions, findings and conclusions |
+| [`FINDINGS.md`](FINDINGS.md) | Consolidated technical findings and durable conclusions |
+| [`ARCHIVE_AUDIT.md`](ARCHIVE_AUDIT.md) | Check for overwritten/lost material and recovery limits |
 | [`c/rejected/`](c/rejected/) | 12 attempts that were tried and rejected, with reasons (`WHY.txt`) |
 | [`logs/`](logs/) | Re-verification of every version, rejected-attempt failures, statistics, progress chart |
 | [`tools/`](tools/) | Scripts that regenerate everything in `logs/` |
