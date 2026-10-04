@@ -1,5 +1,9 @@
 # TREE(3) code golf
 
+<p align="center"><img src="assets/cover.png" alt="The 545-character TREE(3) program written as a tree in a notebook" width="760"></p>
+
+<p align="center"><em>Cover: the 545-character program drawn as a tree. Artistic illustration; the exact, tested source is <a href="c/tree3.c"><code>c/tree3.c</code></a>.</em></p>
+
 [![verify](https://github.com/Zaat/fast-ai/actions/workflows/verify.yml/badge.svg?branch=tree3-golf)](https://github.com/Zaat/fast-ai/actions/workflows/verify.yml?query=branch%3Atree3-golf)
 
 A reproducible record of an extreme C/Python code-golf experiment for the finite TREE function.
