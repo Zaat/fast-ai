@@ -1,0 +1,8 @@
+Sun Oct  4 05:00:36 UTC 2026
+
+545
+embedding mismatches: 0
+generator: distinct 286 reference 286 match
+N=1 -> 1
+N=2 -> 3
+TREE3 asan rc=124 (124 ok)
