@@ -147,6 +147,9 @@ See [`logs/STATS.md`](logs/STATS.md) for statistics and [`logs/history_results.m
 | [`JOURNAL.md`](JOURNAL.md) | Chronological story of the project: discussions, findings and conclusions |
 | [`FINDINGS.md`](FINDINGS.md) | Consolidated technical findings and durable conclusions |
 | [`ARCHIVE_AUDIT.md`](ARCHIVE_AUDIT.md) | Check for overwritten/lost material and recovery limits |
+| [`MILESTONE_545.md`](MILESTONE_545.md) | Self-contained archival record of the 545-char C milestone |
+| [`MILESTONE_PYTHON_348.md`](MILESTONE_PYTHON_348.md) | Self-contained archival record of the 348-char Python milestone |
+| [`VERIFICATION.md`](VERIFICATION.md) | Registry/instructions for independent third-party verification |
 | [`c/rejected/`](c/rejected/) | 12 attempts that were tried and rejected, with reasons (`WHY.txt`) |
 | [`logs/`](logs/) | Re-verification of every version, rejected-attempt failures, statistics, progress chart |
 | [`tools/`](tools/) | Scripts that regenerate everything in `logs/` |
@@ -161,6 +164,7 @@ See [`logs/STATS.md`](logs/STATS.md) for statistics and [`logs/history_results.m
 - [`MANIFEST.md`](MANIFEST.md) — content-addressed IDs for the canonical source and core reference data.
 - [Shorter-candidate issue template](.github/ISSUE_TEMPLATE/shorter-candidate.yml) — structured submission form for external attempts.
 - [GitHub Actions verification](.github/workflows/verify.yml) — re-runs the current harness and the preserved history on pushes/PRs.
+- [Independent verification issue](https://github.com/Zaat/fast-ai/issues/1) — public place for third-party reproductions of the C and Python milestones.
 
 ## Counting convention
 
