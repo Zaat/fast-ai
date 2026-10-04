@@ -80,6 +80,20 @@ Full verified sequence (chars, line breaks not counted):
 
 See [`logs/STATS.md`](logs/STATS.md) for statistics and [`logs/history_results.md`](logs/history_results.md) for the re-verification of every version.
 
+## Milestone commits
+
+| Chars | Commit | Change |
+|---:|---|---|
+| 1513 | [`9a801a7`](https://github.com/Zaat/fast-ai/commit/9a801a75dede8587379531b874c7d0c6a0d7e64b) | User's original C version |
+| 1134 | [`f66511b`](https://github.com/Zaat/fast-ai/commit/f66511b76634b38442537b276843825e71e7c2ee) | No-limits rebuild |
+| 860 | [`f5d827e`](https://github.com/Zaat/fast-ai/commit/f5d827e4b671506c6001269c531a51eb84853c54) | New layout and declarations |
+| 748 | [`e69495a`](https://github.com/Zaat/fast-ai/commit/e69495a2fca35fa9eb1828c2386c0b7cdb7ce5a8) | Albert: return i/I |
+| 681 | [`9e18546`](https://github.com/Zaat/fast-ai/commit/9e185467aa6be445fcff2fb729c908a7384a0f7b) | x and y become globals |
+| 633 | [`6fd32a5`](https://github.com/Zaat/fast-ai/commit/6fd32a531a7d76ef1ca97856f8ec269406c8b8a3) | Seed with the empty tree |
+| 595 | [`9b17945`](https://github.com/Zaat/fast-ai/commit/9b17945cbb38b3c4ca9d650e434cb5a1a3edd211) | Albert: g(v) parameter, g(d+2) every call |
+| 566 | [`f2fd432`](https://github.com/Zaat/fast-ai/commit/f2fd432e48f58a0b84be3d9ac0c8aae006946996) | Merge m and e into one function F |
+| 545 | [`a616164`](https://github.com/Zaat/fast-ai/commit/a61616401f4c1d844a6365128ffc4cb2049ba857) | Drop the realloc declaration |
+
 ## Repository map
 
 | Path | Purpose |
