@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use or discuss this TREE(3) code-golf artifact, please cite this repository."
+title: "TREE(3) code golf"
+type: software
+authors:
+  - family-names: "Albert"
+repository-code: "https://github.com/Zaat/fast-ai/tree/tree3-golf"
+url: "https://github.com/Zaat/fast-ai/tree/tree3-golf"
+version: "c-545"
+date-released: 2026-10-03
+abstract: >-
+  Reproducible archive of a C/Python code-golf experiment implementing the finite TREE(3)
+  search. The current verified C entry in this project is 545 characters under the stated
+  gcc/x86-64 assumptions, with preserved history, rejected attempts, regression tests,
+  sanitizer checks, execution logs, and probability-forecast history.
+license: GPL-3.0-or-later
