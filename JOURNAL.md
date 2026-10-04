@@ -93,3 +93,79 @@ change and the discussion behind it, notes, probability history, rejected attemp
 statistics, charts and automatic tests on every push.
 
 ![savings per step](logs/step_savings.svg)
+
+
+## 12. The practical-ceiling debate
+The last stage of the project became as much a discussion about *search exhaustion* as about
+syntax. By 561 characters, nearly every obvious source-level saving had already been consumed:
+whitespace was gone, identifiers were tiny, declarations/includes had been stripped wherever the
+target compiler allowed it, and the remaining code was already extremely obfuscated.
+
+The proposed 546 target therefore came with a long list of simultaneous constraints:
+
+- it still had to compile in the agreed gcc/x86-64 environment;
+- warnings were acceptable, but a non-building source was not;
+- it could not crash, segfault, corrupt memory or get stuck on tractable cases;
+- it had to preserve the right embedding/search behavior, not merely print the right small value;
+- it had to remain practically usable on the verification cases rather than trade 15 source
+  characters for a pathological slowdown;
+- the search was happening under limited human time and attention, with other tasks competing for
+  that same session.
+
+This led to the language of a **"collapse"** rather than a normal optimization: a 15-character
+saving from 561 would require some whole piece of explicit logic to become unnecessary.
+
+Then 545 appeared.
+
+**Conclusion:** the emotional sense of being "past the ceiling" was real evidence of local search
+exhaustion, but not reliable evidence of a global source-length floor.
+
+## 13. What "compiles properly" meant
+One important rules clarification occurred around the final version. Removing the explicit
+`void*realloc();` declaration produced warnings in loose C, but still compiled and behaved
+correctly in the agreed gcc environment.
+
+The project rule was clarified:
+
+> "Compiles properly" means it builds and runs correctly under the declared target environment;
+> it does not mean warning-free, portable, standards-clean C.
+
+That distinction matters because by this stage the project had intentionally moved far outside
+normal production-C style.
+
+## 14. The rarity discussion
+After 561 and then 545 arrived in rapid succession, the conversation explored how surprising
+that sequence would be under the subjective probability models that had just assigned tiny odds
+to those events. Naively multiplying two extreme forecasts produced cosmic-scale numbers and a
+comparison with the number of 30-minute windows in the age of the universe.
+
+That arithmetic is preserved in `PROBABILITIES.md`, together with the caveat that the events
+and forecasts were not independent or empirically calibrated.
+
+**Conclusion:** the striking fact was not that a literal one-in-quintillions random event had
+occurred. It was that the forecasting model had become so pessimistic that the observed progress
+falsified it almost immediately.
+
+## 15. From "cool result" to archive
+The project then shifted from golfing to preservation. The discussion covered whether the result
+was noteworthy enough to archive publicly, whether Wikipedia would be appropriate, and what
+would make the work independently credible.
+
+The conclusion was to preserve the artifact first:
+
+- exact 545-character source;
+- readable explanation;
+- complete version history;
+- rejected candidates and why they failed;
+- regenerated compiler/runtime/sanitizer logs;
+- probability history;
+- environment and reproducibility notes;
+- graphs and statistics;
+- CI that reruns verification;
+- citation/contribution metadata;
+- an audit for overwritten or missing material.
+
+Wikipedia was deliberately treated as a *later* possibility, because Wikipedia requires
+independent reliable sourcing rather than using the repository itself as original research.
+
+**Conclusion:** reproducibility and provenance are stronger foundations than grand claims.
