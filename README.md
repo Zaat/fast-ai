@@ -7,6 +7,7 @@ Shortest verified programs that compute TREE(3). The search is correct but never
 - `python/`: Python versions (final 348 chars plus newline)
 - `test/`: verification harness
 - `NOTES.md`: rejected ideas, checked claims and estimates
+- `PROBABILITIES.md`: probability estimates over time, the method used, and outcomes
 
 ## C progression (chars, line breaks not counted)
 
