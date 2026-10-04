@@ -8,6 +8,7 @@ repository-code: "https://github.com/Zaat/fast-ai/tree/tree3-golf"
 url: "https://github.com/Zaat/fast-ai/tree/tree3-golf"
 version: "545-character milestone"
 date-released: 2026-10-03
+license: MIT
 abstract: >-
   Reproducible archive of a C/Python code-golf experiment implementing the finite TREE(3)
   search. The current verified C entry in this project is 545 characters under the stated

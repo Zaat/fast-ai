@@ -157,6 +157,10 @@ The interesting part of this experiment is not only the final number. Multiple v
 
 The probability estimates made during the search were repeatedly too pessimistic; that history is preserved in [`PROBABILITIES.md`](PROBABILITIES.md) as a record of forecasting failure rather than as a claim of literal lottery-like rarity.
 
+## Licence
+
+MIT, see [`LICENSE`](LICENSE). This branch is licensed separately from the `main` branch of `fast-ai`, which uses GPL-3.0.
+
 ## Status
 
 **Current verified C best in this project: 545 characters.**

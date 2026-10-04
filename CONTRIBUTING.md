@@ -56,3 +56,8 @@ new version to the history so the path of discovery remains reproducible.
 Until independently established against external submissions under equivalent rules, use
 phrasing such as **"shortest verified C version in this project"** or **"candidate record"**,
 not "world record".
+
+## Licence
+
+This project is licensed under the MIT License (see `LICENSE`). By submitting a candidate
+or other contribution, you agree that it may be distributed under the same licence.
