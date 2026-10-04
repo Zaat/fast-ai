@@ -128,6 +128,15 @@ See [`logs/STATS.md`](logs/STATS.md) for statistics and [`logs/history_results.m
 | [`ENVIRONMENT.md`](ENVIRONMENT.md) | Compiler and machine used for the logs |
 | [`.github/workflows/verify.yml`](.github/workflows/verify.yml) | GitHub runs the tests on every push |
 
+
+## Project metadata and participation
+
+- [`CITATION.cff`](CITATION.cff) — citation metadata for this artifact.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — rules for shorter candidates and verification evidence.
+- [`MANIFEST.md`](MANIFEST.md) — content-addressed IDs for the canonical source and core reference data.
+- [Shorter-candidate issue template](.github/ISSUE_TEMPLATE/shorter-candidate.yml) — structured submission form for external attempts.
+- [GitHub Actions verification](.github/workflows/verify.yml) — re-runs the current harness and the preserved history on pushes/PRs.
+
 ## Counting convention
 
 The project record counts **source characters with line breaks excluded** unless otherwise stated. `c/tree3.c` is stored as a 545-byte one-line file.
