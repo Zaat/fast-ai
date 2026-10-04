@@ -51,9 +51,6 @@ Two systems were used in parallel, and each found its own path from 561 to 545:
   `void*realloc();` (gcc treats an undeclared `realloc` as its pointer-returning built-in)
   plus 1 from `n<J>r`.
 
-```
-```
-
 These were structural changes, not whitespace/name cleanup.
 
 ## Why the 545-byte program is difficult to read
@@ -122,3 +119,27 @@ The main lesson:
 ## Record status
 
 The branch documents the shortest **verified version in this project**. It should not be described as a formal world record unless independent comparison and external verification establish that claim.
+
+
+## Practical runtime rule
+
+The full TREE(3) search is inherently infeasible, so runtime cannot be judged by completion of
+TREE(3). The project instead requires that a golfed rewrite not make the tractable verification
+cases gratuitously useless.
+
+A source that saves characters by introducing an avoidable hang, explosive recomputation, or
+failure on small/reference inputs is not accepted merely because it is shorter.
+
+## Late-stage constraints that were already exhausted
+
+By the 561-character stage, ordinary cosmetic slack was effectively gone:
+
+- no meaningful whitespace remained;
+- identifiers were already minimal;
+- includes/declarations had been removed where the target gcc environment permitted it;
+- state was aggressively reused;
+- the representation itself was already serving multiple roles;
+- the code was intentionally very loose, non-portable C.
+
+This is why the 561 → 545 result was described as a structural "collapse" rather than ordinary
+cleanup.
