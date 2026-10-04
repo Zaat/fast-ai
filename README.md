@@ -159,7 +159,9 @@ The probability estimates made during the search were repeatedly too pessimistic
 
 ## Licence
 
-MIT, see [`LICENSE`](LICENSE). This branch is licensed separately from the `main` branch of `fast-ai`, which uses GPL-3.0.
+MIT, see [`LICENSE`](LICENSE).
+
+**Credit:** if you reuse or discuss this work, please credit **Albert (Zaat)** and link to this repository. GitHub's "Cite this repository" button (from `CITATION.cff`) gives a ready-made citation. This branch is licensed separately from the `main` branch of `fast-ai`, which uses GPL-3.0.
 
 ## Status
 
