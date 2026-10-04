@@ -1,0 +1,154 @@
+gcc -Wall:
+c/rejected/01_unsequenced_p_increment.c:2:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+    2 | m(x,i,I,y,j,J,u)int*x,*y;char*u;{for(int c=j;i<I&&c<J;c+=y[c])if(!u[c]&&e(x,i,y,c)&&(u[c]=m(x,i+x[i],I,y,j,J,(u[c]=1,u))))return 1;return i>=I;}
+      | ^
+c/rejected/01_unsequenced_p_increment.c: In function ‘m’:
+c/rejected/01_unsequenced_p_increment.c:2:1: warning: type of ‘i’ defaults to ‘int’ [-Wimplicit-int]
+c/rejected/01_unsequenced_p_increment.c:2:1: warning: type of ‘I’ defaults to ‘int’ [-Wimplicit-int]
+c/rejected/01_unsequenced_p_increment.c:2:1: warning: type of ‘j’ defaults to ‘int’ [-Wimplicit-int]
+c/rejected/01_unsequenced_p_increment.c:2:1: warning: type of ‘J’ defaults to ‘int’ [-Wimplicit-int]
+c/rejected/01_unsequenced_p_increment.c: At top level:
+c/rejected/01_unsequenced_p_increment.c:3:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+    3 | e(x,i,y,j)int*x,*y;{for(int c=j+1;c<j+y[j];c+=y[c])if(e(x,i,y,c))return 1;char u[*y];memset(u,0,*y);return x[*x+i]==y[*y+j]&&m(x,i+1,i+x[i],y,j+1,j+y[j],u);}
+      | ^
+c/rejected/01_unsequenced_p_increment.c: In function ‘e’:
+c/rejected/01_unsequenced_p_increment.c:3:1: warning: type of ‘i’ defaults to ‘int’ [-Wimplicit-int]
+c/rejected/01_unsequenced_p_increment.c:3:1: warning: type of ‘j’ defaults to ‘int’ [-Wimplicit-int]
+c/rejected/01_unsequenced_p_increment.c:3:86: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+    3 | e(x,i,y,j)int*x,*y;{for(int c=j+1;c<j+y[j];c+=y[c])if(e(x,i,y,c))return 1;char u[*y];memset(u,0,*y);return x[*x+i]==y[*y+j]&&m(x,i+1,i+x[i],y,j+1,j+y[j],u);}
+      |                                                                                      ^~~~~~
+c/rejected/01_unsequenced_p_increment.c:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+  +++ |+#include <string.h>
+    1 | void*realloc();int**P,**S,p,N,v=1,e();
+c/rejected/01_unsequenced_p_increment.c:3:86: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+    3 | e(x,i,y,j)int*x,*y;{for(int c=j+1;c<j+y[j];c+=y[c])if(e(x,i,y,c))return 1;char u[*y];memset(u,0,*y);return x[*x+i]==y[*y+j]&&m(x,i+1,i+x[i],y,j+1,j+y[j],u);}
+      |                                                                                      ^~~~~~
+c/rejected/01_unsequenced_p_increment.c:3:86: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+c/rejected/01_unsequenced_p_increment.c: At top level:
+c/rejected/01_unsequenced_p_increment.c:4:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+    4 | g(){int h=p,k=0,i,c,j,q,r,*o,*t;for(;k<h;k++)if(*(o=P[k])==v)for(i=0;i<v;i++)for(c=0;c<N;c++){q=i+o[i];t=realloc(0,8*v+8);for(j=0;j<=v;j++)r=j-(j>q),t[j]=j-q?o[r]+(r<=i&r+o[r]>i):1,t[v+1+j]=j-q?o[v+r]:c;P=realloc(P,8*p+8);P[p++]=t;}v++;}
+      | ^
+c/rejected/01_unsequenced_p_increment.c: In function ‘g’:
+c/rejected/01_unsequenced_p_increment.c:4:119: warning: ‘realloc’ argument 2 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+    4 | g(){int h=p,k=0,i,c,j,q,r,*o,*t;for(;k<h;k++)if(*(o=P[k])==v)for(i=0;i<v;i++)for(c=0;c<N;c++){q=i+o[i];t=realloc(0,8*v+8);for(j=0;j<=v;j++)r=j-(j>q),t[j]=j-q?o[r]+(r<=i&r+o[r]>i):1,t[v+1+j]=j-q?o[v+r]:c;P=realloc(P,8*p+8);P[p++]=t;}v++;}
+      |                                                                                                                    ~~~^~
+c/rejected/01_unsequenced_p_increment.c:1:6: note: built-in ‘realloc’ declared here
+    1 | void*realloc();int**P,**S,p,N,v=1,e();
+      |      ^~~~~~~
+c/rejected/01_unsequenced_p_increment.c:4:166: warning: suggest parentheses around comparison in operand of ‘&’ [-Wparentheses]
+    4 | g(){int h=p,k=0,i,c,j,q,r,*o,*t;for(;k<h;k++)if(*(o=P[k])==v)for(i=0;i<v;i++)for(c=0;c<N;c++){q=i+o[i];t=realloc(0,8*v+8);for(j=0;j<=v;j++)r=j-(j>q),t[j]=j-q?o[r]+(r<=i&r+o[r]>i):1,t[v+1+j]=j-q?o[v+r]:c;P=realloc(P,8*p+8);P[p++]=t;}v++;}
+      |                                                                                                                                                                     ~^~~
+c/rejected/01_unsequenced_p_increment.c:4:219: warning: ‘realloc’ argument 2 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+    4 | g(){int h=p,k=0,i,c,j,q,r,*o,*t;for(;k<h;k++)if(*(o=P[k])==v)for(i=0;i<v;i++)for(c=0;c<N;c++){q=i+o[i];t=realloc(0,8*v+8);for(j=0;j<=v;j++)r=j-(j>q),t[j]=j-q?o[r]+(r<=i&r+o[r]>i):1,t[v+1+j]=j-q?o[v+r]:c;P=realloc(P,8*p+8);P[p++]=t;}v++;}
+      |                                                                                                                                                                                                                        ~~~^~
+c/rejected/01_unsequenced_p_increment.c:1:6: note: built-in ‘realloc’ declared here
+    1 | void*realloc();int**P,**S,p,N,v=1,e();
+      |      ^~~~~~~
+c/rejected/01_unsequenced_p_increment.c: At top level:
+c/rejected/01_unsequenced_p_increment.c:5:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+    5 | f(d){int b=d,k=0,q,r;while(v<=d)g();S=realloc(S,8*d+8);for(;k<p&&*P[k]<=d+1;k++){for(q=d;q--&&!e(S[q],0,P[k],0););if(q<0)S[d]=P[k],r=f(d+1),b=r>b?r:b;}return b;}
+      | ^
+c/rejected/01_unsequenced_p_increment.c: In function ‘f’:
+c/rejected/01_unsequenced_p_increment.c:5:1: warning: type of ‘d’ defaults to ‘int’ [-Wimplicit-int]
+c/rejected/01_unsequenced_p_increment.c:5:52: warning: ‘realloc’ argument 2 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+    5 | f(d){int b=d,k=0,q,r;while(v<=d)g();S=realloc(S,8*d+8);for(;k<p&&*P[k]<=d+1;k++){for(q=d;q--&&!e(S[q],0,P[k],0););if(q<0)S[d]=P[k],r=f(d+1),b=r>b?r:b;}return b;}
+      |                                                 ~~~^~
+c/rejected/01_unsequenced_p_increment.c:1:6: note: built-in ‘realloc’ declared here
+    1 | void*realloc();int**P,**S,p,N,v=1,e();
+      |      ^~~~~~~
+c/rejected/01_unsequenced_p_increment.c: At top level:
+c/rejected/01_unsequenced_p_increment.c:6:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+    6 | main(c,a)char**a;{for(N=c>1?atoi(a[1]):3;p<N;)P=realloc(P,8*p+8),P[p]=realloc(0,8),*P[p]=1,P[p][1]=p++;printf("%d",f(0));}
+      | ^~~~
+c/rejected/01_unsequenced_p_increment.c: In function ‘main’:
+c/rejected/01_unsequenced_p_increment.c:6:1: warning: type of ‘c’ defaults to ‘int’ [-Wimplicit-int]
+c/rejected/01_unsequenced_p_increment.c:6:29: warning: implicit declaration of function ‘atoi’ [-Wimplicit-function-declaration]
+    6 | main(c,a)char**a;{for(N=c>1?atoi(a[1]):3;p<N;)P=realloc(P,8*p+8),P[p]=realloc(0,8),*P[p]=1,P[p][1]=p++;printf("%d",f(0));}
+      |                             ^~~~
+c/rejected/01_unsequenced_p_increment.c:6:62: warning: ‘realloc’ argument 2 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+    6 | main(c,a)char**a;{for(N=c>1?atoi(a[1]):3;p<N;)P=realloc(P,8*p+8),P[p]=realloc(0,8),*P[p]=1,P[p][1]=p++;printf("%d",f(0));}
+      |                                                           ~~~^~
+c/rejected/01_unsequenced_p_increment.c:1:6: note: built-in ‘realloc’ declared here
+    1 | void*realloc();int**P,**S,p,N,v=1,e();
+      |      ^~~~~~~
+c/rejected/01_unsequenced_p_increment.c:6:81: warning: ‘realloc’ argument 2 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+    6 | main(c,a)char**a;{for(N=c>1?atoi(a[1]):3;p<N;)P=realloc(P,8*p+8),P[p]=realloc(0,8),*P[p]=1,P[p][1]=p++;printf("%d",f(0));}
+      |                                                                                 ^
+c/rejected/01_unsequenced_p_increment.c:1:6: note: built-in ‘realloc’ declared here
+    1 | void*realloc();int**P,**S,p,N,v=1,e();
+      |      ^~~~~~~
+c/rejected/01_unsequenced_p_increment.c:6:101: warning: operation on ‘p’ may be undefined [-Wsequence-point]
+    6 | main(c,a)char**a;{for(N=c>1?atoi(a[1]):3;p<N;)P=realloc(P,8*p+8),P[p]=realloc(0,8),*P[p]=1,P[p][1]=p++;printf("%d",f(0));}
+      |                                                                                                    ~^~
+c/rejected/01_unsequenced_p_increment.c:6:104: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
+    6 | main(c,a)char**a;{for(N=c>1?atoi(a[1]):3;p<N;)P=realloc(P,8*p+8),P[p]=realloc(0,8),*P[p]=1,P[p][1]=p++;printf("%d",f(0));}
+      |                                                                                                        ^~~~~~
+c/rejected/01_unsequenced_p_increment.c:1:1: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+  +++ |+#include <stdio.h>
+    1 | void*realloc();int**P,**S,p,N,v=1,e();
+c/rejected/01_unsequenced_p_increment.c:6:104: warning: incompatible implicit declaration of built-in function ‘printf’ [-Wbuiltin-declaration-mismatch]
+    6 | main(c,a)char**a;{for(N=c>1?atoi(a[1]):3;p<N;)P=realloc(P,8*p+8),P[p]=realloc(0,8),*P[p]=1,P[p][1]=p++;printf("%d",f(0));}
+      |                                                                                                        ^~~~~~
+c/rejected/01_unsequenced_p_increment.c:6:104: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+c/rejected/01_unsequenced_p_increment.c: In function ‘g’:
+c/rejected/01_unsequenced_p_increment.c:4:237: warning: control reaches end of non-void function [-Wreturn-type]
+    4 | g(){int h=p,k=0,i,c,j,q,r,*o,*t;for(;k<h;k++)if(*(o=P[k])==v)for(i=0;i<v;i++)for(c=0;c<N;c++){q=i+o[i];t=realloc(0,8*v+8);for(j=0;j<=v;j++)r=j-(j>q),t[j]=j-q?o[r]+(r<=i&r+o[r]>i):1,t[v+1+j]=j-q?o[v+r]:c;P=realloc(P,8*p+8);P[p++]=t;}v++;}
+      |                                                                                                                                                                                                                                             ^
+
+
+plain run: rc=-11
+
+
+sanitizer run: rc=1
+stdout: 
+stderr:
+=================================================================
+==2453==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x502000000018 at pc 0x564a452922ba bp 0x7fff38f306d0 sp 0x7fff38f306c0
+READ of size 8 at 0x502000000018 thread T0
+    #0 0x564a452922b9 in main c/rejected/01_unsequenced_p_increment.c:6
+    #1 0x7fe77962a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #2 0x7fe77962a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #3 0x564a45290364 in _start (/tmp/rja+0x5364) (BuildId: ef3461587ec0819eceb97b77f9e18516d2cbf545)
+
+0x502000000018 is located 0 bytes after 8-byte region [0x502000000010,0x502000000018)
+allocated by thread T0 here:
+    #0 0x7fe77a2fc778 in realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:85
+    #1 0x564a4529205b in main c/rejected/01_unsequenced_p_increment.c:6
+    #2 0x7fe77962a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #3 0x7fe77962a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #4 0x564a45290364 in _start (/tmp/rja+0x5364) (BuildId: ef3461587ec0819eceb97b77f9e18516d2cbf545)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow c/rejected/01_unsequenced_p_increment.c:6 in main
+Shadow bytes around the buggy address:
+  0x501ffffffd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501ffffffe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501ffffffe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501fffffff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x501fffffff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x502000000000: fa fa 00[fa]fa fa 00 fa fa fa fa fa fa fa fa fa
+  0x502000000080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x502000000280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==2453==ABORTING
+

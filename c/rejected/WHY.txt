@@ -1,0 +1,12 @@
+01_unsequenced_p_increment.c|P[p][1]=p++ reads and changes p without a sequence point (undefined); gcc increments first and writes an unallocated slot.
+02_global_c_k_b_in_recursion.c|Makes c, k, b global in recursive functions; nested calls overwrite the caller's loop state.
+03_q_loop_without_empty_body.c|Same as 02 plus the q loop lost its empty body, so the record step runs inside the loop where q>=0.
+04_unparenthesised_abs_macro.c|#define A(n)n<0?-n:n: i+A(x[i]) parses as (i+x[i]<0)?...; also longer than abs (+17 net in the 761 variant).
+05_return_not_i_lt_I.c|return!i<I parses as (!i)<I, not i>=I (proposed four times).
+06_else_return_longer.c|Correct, but if/else-return inside an endless loop is 16 chars longer.
+07_embedding_check_deleted.c|"751 chars": deletes the embedding check, so q never goes negative and nothing is recorded.
+08_pasted_598_claim.c|Code from an analysis that claimed to be a corrected 598-char version; it is actually 795 chars (works, but the claim and the reported bugs were wrong).
+09_abs_macro_p1_shift.c|Unparenthesised abs macro plus p+1<<3 sizes; same misparse as 04.
+10_no_self_check.c|Removes the self-comparison guard; x and y alias, sign-marking corrupts both trees.
+11_no_abs_on_sibling_step.c|c+=y[c] without abs: a marked (negative) child makes the scan step backwards. TREE(2) happens to print 3, but the 3,000-pair embedding test hangs on pair 4.
+12_int_S_pointer_truncation.c|int*S storing tree pointers truncates them to 32 bits (and drops the self-check); segfault.
