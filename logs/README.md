@@ -10,6 +10,7 @@ All produced by the scripts in `tools/` (environment: `ENVIRONMENT.md`).
 | `python/*.log` | Python versions run with 2 colours (TREE(2)) | `tools/verify_all.py` |
 | `rejected_results.md`, `rejected_*.log` | What goes wrong with each rejected attempt | `tools/run_rejected.py` |
 | `STATS.md`, `progress.svg` | Statistics and a chart of the progression | `tools/stats.py` |
+| `forecasts.svg`, `step_savings.svg` | Forecast best guesses vs outcomes; characters saved per step | `tools/charts.py` |
 
 These logs were regenerated after the sessions by re-running the preserved sources, so they
 reflect what each version does today with the stated compiler. The original in-session test

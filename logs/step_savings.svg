@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" font-family="sans-serif" font-size="11">
+<rect width="100%" height="100%" fill="white"/>
+<text x="380.0" y="20" text-anchor="middle" font-size="14">Characters saved per verified step (1134 → 545)</text>
+<line x1="50" x2="710" y1="270" y2="270" stroke="#eee"/><text x="44" y="274" text-anchor="end">0</text>
+<line x1="50" x2="710" y1="230" y2="230" stroke="#eee"/><text x="44" y="234" text-anchor="end">50</text>
+<line x1="50" x2="710" y1="190" y2="190" stroke="#eee"/><text x="44" y="194" text-anchor="end">100</text>
+<line x1="50" x2="710" y1="150" y2="150" stroke="#eee"/><text x="44" y="154" text-anchor="end">150</text>
+<line x1="50" x2="710" y1="109" y2="109" stroke="#eee"/><text x="44" y="113" text-anchor="end">200</text>
+<line x1="50" x2="710" y1="69" y2="69" stroke="#eee"/><text x="44" y="73" text-anchor="end">250</text>
+<rect x="51.0" y="50.0" width="12.7" height="220.0" fill="#2a6fdb"><title>1134 → 860: 274</title></rect>
+<rect x="65.7" y="266.8" width="12.7" height="3.2" fill="#9bbcf0"><title>860 → 856: 4</title></rect>
+<rect x="80.3" y="266.8" width="12.7" height="3.2" fill="#9bbcf0"><title>856 → 852: 4</title></rect>
+<rect x="95.0" y="267.6" width="12.7" height="2.4" fill="#9bbcf0"><title>852 → 849: 3</title></rect>
+<rect x="109.7" y="238.7" width="12.7" height="31.3" fill="#2a6fdb"><title>849 → 810: 39</title></rect>
+<rect x="124.3" y="267.6" width="12.7" height="2.4" fill="#9bbcf0"><title>810 → 807: 3</title></rect>
+<rect x="139.0" y="269.2" width="12.7" height="0.8" fill="#9bbcf0"><title>807 → 806: 1</title></rect>
+<rect x="153.7" y="270.0" width="12.7" height="0.0" fill="#9bbcf0"><title>806 → 806: 0</title></rect>
+<rect x="168.3" y="263.6" width="12.7" height="6.4" fill="#9bbcf0"><title>806 → 798: 8</title></rect>
+<rect x="183.0" y="267.6" width="12.7" height="2.4" fill="#9bbcf0"><title>798 → 795: 3</title></rect>
+<rect x="197.7" y="268.4" width="12.7" height="1.6" fill="#9bbcf0"><title>795 → 793: 2</title></rect>
+<rect x="212.3" y="269.2" width="12.7" height="0.8" fill="#9bbcf0"><title>793 → 792: 1</title></rect>
+<rect x="227.0" y="267.6" width="12.7" height="2.4" fill="#9bbcf0"><title>792 → 789: 3</title></rect>
+<rect x="241.7" y="263.6" width="12.7" height="6.4" fill="#9bbcf0"><title>789 → 781: 8</title></rect>
+<rect x="256.3" y="269.2" width="12.7" height="0.8" fill="#9bbcf0"><title>781 → 780: 1</title></rect>
+<rect x="271.0" y="269.2" width="12.7" height="0.8" fill="#9bbcf0"><title>780 → 779: 1</title></rect>
+<rect x="285.7" y="255.5" width="12.7" height="14.5" fill="#2a6fdb"><title>779 → 761: 18</title></rect>
+<rect x="300.3" y="269.2" width="12.7" height="0.8" fill="#9bbcf0"><title>761 → 760: 1</title></rect>
+<rect x="315.0" y="269.2" width="12.7" height="0.8" fill="#9bbcf0"><title>760 → 759: 1</title></rect>
+<rect x="329.7" y="266.8" width="12.7" height="3.2" fill="#9bbcf0"><title>759 → 755: 4</title></rect>
+<rect x="344.3" y="269.2" width="12.7" height="0.8" fill="#9bbcf0"><title>755 → 754: 1</title></rect>
+<rect x="359.0" y="269.2" width="12.7" height="0.8" fill="#9bbcf0"><title>754 → 753: 1</title></rect>
+<rect x="373.7" y="266.8" width="12.7" height="3.2" fill="#9bbcf0"><title>753 → 749: 4</title></rect>
+<rect x="388.3" y="269.2" width="12.7" height="0.8" fill="#9bbcf0"><title>749 → 748: 1</title></rect>
+<rect x="403.0" y="260.4" width="12.7" height="9.6" fill="#2a6fdb"><title>748 → 736: 12</title></rect>
+<rect x="417.7" y="263.6" width="12.7" height="6.4" fill="#9bbcf0"><title>736 → 728: 8</title></rect>
+<rect x="432.3" y="259.6" width="12.7" height="10.4" fill="#2a6fdb"><title>728 → 715: 13</title></rect>
+<rect x="447.0" y="263.6" width="12.7" height="6.4" fill="#9bbcf0"><title>715 → 707: 8</title></rect>
+<rect x="461.7" y="249.1" width="12.7" height="20.9" fill="#2a6fdb"><title>707 → 681: 26</title></rect>
+<rect x="476.3" y="268.4" width="12.7" height="1.6" fill="#9bbcf0"><title>681 → 679: 2</title></rect>
+<rect x="491.0" y="266.8" width="12.7" height="3.2" fill="#9bbcf0"><title>679 → 675: 4</title></rect>
+<rect x="505.7" y="264.4" width="12.7" height="5.6" fill="#9bbcf0"><title>675 → 668: 7</title></rect>
+<rect x="520.3" y="263.6" width="12.7" height="6.4" fill="#9bbcf0"><title>668 → 660: 8</title></rect>
+<rect x="535.0" y="266.8" width="12.7" height="3.2" fill="#9bbcf0"><title>660 → 656: 4</title></rect>
+<rect x="549.7" y="251.5" width="12.7" height="18.5" fill="#2a6fdb"><title>656 → 633: 23</title></rect>
+<rect x="564.3" y="266.8" width="12.7" height="3.2" fill="#9bbcf0"><title>633 → 629: 4</title></rect>
+<rect x="579.0" y="266.0" width="12.7" height="4.0" fill="#9bbcf0"><title>629 → 624: 5</title></rect>
+<rect x="593.7" y="266.8" width="12.7" height="3.2" fill="#9bbcf0"><title>624 → 620: 4</title></rect>
+<rect x="608.3" y="260.4" width="12.7" height="9.6" fill="#2a6fdb"><title>620 → 608: 12</title></rect>
+<rect x="623.0" y="268.4" width="12.7" height="1.6" fill="#9bbcf0"><title>608 → 606: 2</title></rect>
+<rect x="637.7" y="264.4" width="12.7" height="5.6" fill="#9bbcf0"><title>606 → 599: 7</title></rect>
+<rect x="652.3" y="266.8" width="12.7" height="3.2" fill="#9bbcf0"><title>599 → 595: 4</title></rect>
+<rect x="667.0" y="246.7" width="12.7" height="23.3" fill="#2a6fdb"><title>595 → 566: 29</title></rect>
+<rect x="681.7" y="266.0" width="12.7" height="4.0" fill="#9bbcf0"><title>566 → 561: 5</title></rect>
+<rect x="696.3" y="257.2" width="12.7" height="12.8" fill="#2a6fdb"><title>561 → 545: 16</title></rect>
+<text x="380.0" y="306" text-anchor="middle">step (dark = 10+ chars, mostly structural ideas)</text></svg>

@@ -74,9 +74,24 @@ Full verified sequence (chars, line breaks not counted):
 ```
 (1778 is the readable reference used for the assembly version; 824 is the rejected fixed-limit version.)
 
+## Key findings
+
+1. A complete, limit-free TREE(3) search fits in **545 characters** of gcc C (348 in Python).
+2. The biggest savings came from **representation changes**, not syntax tricks.
+3. A strict **verification harness** was essential: it rejected a dozen plausible-looking shortcuts.
+4. Re-verification found a **real memory bug** in an early readable version that had gone unnoticed.
+5. **Forecasts of "how much further" were consistently too pessimistic**, by up to a factor of hundreds.
+6. Several confident **analyses from other AI systems were wrong** in specific, testable ways.
+
+See [`JOURNAL.md`](JOURNAL.md) for the full story.
+
 ## Progress
 
 ![progress](logs/progress.svg)
+
+![savings per step](logs/step_savings.svg)
+
+![forecasts](logs/forecasts.svg)
 
 See [`logs/STATS.md`](logs/STATS.md) for statistics and [`logs/history_results.md`](logs/history_results.md) for the re-verification of every version.
 
@@ -106,6 +121,7 @@ See [`logs/STATS.md`](logs/STATS.md) for statistics and [`logs/history_results.m
 | [`test/`](test/) | Verification harness and reference data |
 | [`NOTES.md`](NOTES.md) | Technical notes, failed ideas, invariants and breakthroughs |
 | [`PROBABILITIES.md`](PROBABILITIES.md) | Forecast history and lessons from repeated probability misses |
+| [`JOURNAL.md`](JOURNAL.md) | Chronological story of the project: discussions, findings and conclusions |
 | [`c/rejected/`](c/rejected/) | 12 attempts that were tried and rejected, with reasons (`WHY.txt`) |
 | [`logs/`](logs/) | Re-verification of every version, rejected-attempt failures, statistics, progress chart |
 | [`tools/`](tools/) | Scripts that regenerate everything in `logs/` |
