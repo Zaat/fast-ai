@@ -19,6 +19,21 @@ The current C entry is **545 characters** (line breaks not counted), verified by
 
 The golf intentionally relies on old-style/implicit C behavior, GNU/compiler extensions and x86-64 size assumptions. It is **not portable ISO C**.
 
+## Current Python entry
+
+- Source: [`python/tree3.py`](python/tree3.py)
+- Historical progression: [`python/`](python/)
+- Current stored size: **349 bytes** (**348 source characters + final newline**)
+- Archived verification environment: **Python 3.13.15**
+- Python statistics/history: [`python/STATS.md`](python/STATS.md)
+
+The Python track is a substantial part of the project in its own right. It began with a
+763-byte readable reference and was reduced to the current 349-byte file, a **54.3%**
+reduction in stored source size. The final canonical source and
+`python/15_349_s348.py` are byte-identical.
+
+![Python progression](python/progress.svg)
+
 ## What TREE(3) is
 
 TREE(n) is the maximum length of a sequence of finite rooted trees whose nodes use at most `n` colours, where the `k`-th tree has at most `k` nodes and no earlier tree embeds into a later one. Kruskal's tree theorem implies every such bad sequence is finite.
@@ -167,4 +182,7 @@ MIT, see [`LICENSE`](LICENSE).
 
 **Current verified C best in this project: 545 characters.**
 
-Further reductions should be accepted only after they pass the same verification standard as the current entry.
+**Current Python best preserved in this project: 349 stored bytes / 348 source characters plus final newline.**
+
+Further reductions in either track should be preserved as new milestones and accepted only after
+the applicable verification checks pass.
